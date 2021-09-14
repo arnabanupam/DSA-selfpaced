@@ -1,0 +1,44 @@
+//Given n numbers (both +ve and -ve), arranged in a circle, find the maximum sum of consecutive numbers.
+
+//Input: a[] = {8, -8, 9, -9, 10, -11, 12}
+//Output: 22 (12 + 8 - 8 + 9 - 9 + 10)
+
+//Input: a[] = {10, -3, -4, 7, 6, 5, -4, -1} 
+//Output:  23 (7 + 6 + 5 - 4 -1 + 10) 
+
+//Input: a[] = {-1, 40, -14, 7, 6, 5, -4, -1}
+//Output: 52 (7 + 6 + 5 - 4 - 1 - 1 + 40)
+
+
+//Code:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define each(n) for(int i=0;i<n;i++)
+#define range(st,en) for(int i=st;i<en;i++)
+#define input(arr) each(n)cin>>arr[i];
+#define print(arr) each(n)cout<<arr[i]<<"\t"
+#define rev(n) for(int i=n-1;i>=0;i--)
+
+int promptfun(int arr[], int n){
+	 int sum = 0, temp = 0, res = 0;
+	 each(n){
+	 	sum+=arr[i];
+	 }
+	 each(n){
+	 	temp = sum-arr[i];
+	 	res = max(res,temp);
+	 }
+	 return res;
+} 
+
+int main(){
+	int n;
+	cin>>n;
+	int arr[n];
+	input(arr); //10 12 14 7 8 -> count = 3  
+	cout<<promptfun(arr,n)<<"\n";
+		
+	return 0;
+}
