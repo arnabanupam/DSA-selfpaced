@@ -30,7 +30,7 @@ int promptfun(int arr[], int n){
 	 	temp = sum-arr[i];
 	 	res = max(res,temp);
 	 }
-	 return res;
+	 return max(sum,res);
 } 
 
 int main(){
