@@ -1,0 +1,43 @@
+//Length of the longest alternating even odd subarray
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define each(n) for(int i=0;i<n;i++)
+#define range(st,en) for(int i=st;i<en;i++)
+#define input(arr) each(n)cin>>arr[i];
+#define print(arr) each(n)cout<<arr[i]<<"\t"
+#define rev(n) for(int i=n-1;i>=0;i--)
+
+int leaderlist(int arr[], int n){
+	int count = 0;
+	bool res_even = true;
+	bool curr_even = true;
+	
+	if(arr[0]%2==0)	res_even = true;
+	else res_even = false;
+	
+	range(1,n){
+		if(arr[i]%2==0){
+			curr_even = true;
+		}
+		if(arr[i]%2!=0){
+			curr_even = false;
+		}
+		if(curr_even!=res_even){
+			count++;
+		}
+		res_even = curr_even;
+	}
+	return count+1; 
+} 
+
+int main(){
+	int n;
+	cin>>n;
+	int arr[n];
+	input(arr); //10 12 14 7 8 -> count = 3  
+	cout<<leaderlist(arr,n)<<"\n";
+		
+	return 0;
+}
